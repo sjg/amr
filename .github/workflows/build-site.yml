@@ -29,12 +29,12 @@ jobs:
         path: codelab-src
 
     - name: Setup Node and Gulp
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 18
-    - run: npm ci
-    - run: npm test
-    - run: gulp dist --codelabs-dir=./codelabs
+      uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      run: npm ci
+      run: npm test
+       run: gulp dist --codelabs-dir=./codelabs
 
     - name: List files in the repository
       run: |
