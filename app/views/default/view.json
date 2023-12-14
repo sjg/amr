@@ -1,0 +1,13 @@
+{
+  "title": "AMR Workshops",
+  "description": "Interactive Workshops developed for the EPSRC Digital Health Hub for AMR @ UCL",
+  "tags": [],
+  "categories": [],
+  "exclude": [
+    "^lang-.*"
+  ],
+  "logoUrl": "/images/logo.png",
+  "toolbarBgColor": "#37474F",
+  "sort": "mainCategory",
+  "pins": []
+}
