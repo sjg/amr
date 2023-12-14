@@ -1,0 +1,41 @@
+name: Build Claat Website and push to GitHub Pages
+
+on:
+  push:
+    branches: [ "web-src" ]
+  #pull_request:
+    #branches: [ "main" ]
+
+jobs:
+  build-and-push-image:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+
+    - name: Checkout Website App
+      uses: actions/checkout@v4
+      with:
+        ref: website-source
+
+    - name: Checkout Workshop Files
+      uses: actions/checkout@v4
+      with:
+        repository: sjg/amr
+        ref: main
+        path: codelab-src
+
+    - name: Setup Node and Gulp
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - run: npm ci
+    - run: npm test
+    - run: gulp dist --codelabs-dir=./codelabs
+
+    - name: List files in the repository
+      run: |
+        ls ${{ github.workspace }}
