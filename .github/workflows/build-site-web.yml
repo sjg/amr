@@ -4,19 +4,16 @@ on:
   push:
     branches: [ "web-source" ]
   #pull_request:
-    #branches: [ "main" ]
-
-permissions:
-  contents: write
-  pages: write          
-  
+    #branches: [ "main" ]     
+    
 jobs:
   build-and-push-image:
 
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
+      pages: write
 
     steps:
 
