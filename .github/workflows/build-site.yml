@@ -67,18 +67,18 @@ jobs:
             fi
           done
       
-      - name: Find files matching "*.md"
-        uses: jeertmans/filesfinder@v0.4.6
-        id: ff
-        with:
-          args: --dir ${{ github.workspace }}/codelabs *.md
+      # - name: Find files matching "*.md"
+      #   uses: jeertmans/filesfinder@v0.4.6
+      #   id: ff
+      #   with:
+      #     args: --dir ${{ github.workspace }}/codelabs *.md
       
-      - name: Build all CLAAT files
-        run: |
-          echo "${{ steps.ff.outputs.files }}"
-          for file in ${{ steps.ff.outputs.files }}; do
-            echo "Building: $file"
-          done
+      # - name: Build all CLAAT files
+      #   run: |
+      #     echo "${{ steps.ff.outputs.files }}"
+      #     for file in ${{ steps.ff.outputs.files }}; do
+      #       echo "Building: $file"
+      #     done
       
       - name: Build Site
         run: |
