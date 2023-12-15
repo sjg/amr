@@ -28,10 +28,12 @@ jobs:
         ref: main
         path: codelab-src
 
-    - name: Setup Node and Gulp
+    - name: Setup Node
       uses: actions/setup-node@v4
       with:
         node-version: 18
+     
+    - name: Build Site
       run: | 
         npm ci
         npm test
