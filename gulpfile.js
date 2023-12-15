@@ -576,7 +576,9 @@ const generateView = () => {
 
     // Aanalytics information.
     const ga = DEFAULT_GA;
-
+    const matomo_siteid = DEFAULT_MATOMO_SITEID;
+    const matomo_url = DEFAULT_MATOMO_URL;
+    
     // Full list of views
     const all = collectMetadata();
 
@@ -600,6 +602,8 @@ const generateView = () => {
       showcats: categories.length > 1,
       view: view,
       views: all.views,
+      matomoSITEID: matomo_siteid,
+      matomoURL: matomo_url,
 
       canonicalViewUrl: viewFuncs.canonicalViewUrl(),
       categoryClass: viewFuncs.categoryClass(),
