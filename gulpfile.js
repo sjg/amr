@@ -44,7 +44,9 @@ const url = require('url');
 const os = require('os');
 
 // DEFAULT_GA is the default Google Analytics tracker ID
-const DEFAULT_GA = 'UA-152705794-4';
+const DEFAULT_GA = args.GA_UA || 'UA-152705794-4';
+const DEFAULT_MATOMO_SITEID = args.matomoSiteID || '';
+const DEFAULT_MATOMO_URL = args.matomoURL || '';
 
 // DEFAULT_VIEW_META_PATH is the default path to view metadata.
 const DEFAULT_VIEW_META_PATH = 'app/views/default/view.json';
