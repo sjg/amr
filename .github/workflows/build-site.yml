@@ -42,8 +42,9 @@ jobs:
           files: | 
             **.md
       
-      - id: fetch-latest-release
-        uses: thebritican/fetch-latest-release@v1
+      - name:  Download Latest Version of CLAAT
+        id: fetch-latest-release
+        uses: thebritican/fetch-latest-release@v2.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           repo_path: googlecodelabs/tools
