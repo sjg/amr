@@ -168,7 +168,7 @@
           >
             {%- for view in views -%}
               {%- if view.id != 'default' && !view.hidden -%}
-                <a href="/{{view.url}}/" tabindex="-1">
+                <a href="./{{view.url}}/" tabindex="-1">
                   <paper-item>{{view.title}}</paper-item>
                 </a>
               {%- endif -%}
@@ -244,7 +244,7 @@
 
   </paper-header-panel>
 
-  <!-- build:js /scripts/main.js -->
+  <!-- build:js ./scripts/main.js -->
   <script src="./bower_components/url-search-params-polyfill/build/url-search-params.js"></script>
   <script src="./scripts/app.js"></script>
   <!-- endbuild-->
