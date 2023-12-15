@@ -2,7 +2,7 @@ name: Build Claat Website and push to GitHub Pages
 
 on:
   push:
-    branches: [ "web-src" ]
+    branches: [ "web-source" ]
   #pull_request:
     #branches: [ "main" ]
 
