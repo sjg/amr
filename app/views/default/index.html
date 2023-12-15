@@ -67,7 +67,7 @@
   </style>
 
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#455a64">
+  <meta name="apple-mobile-web-app-status-bar-style" content="{{view.toolbarBgColor}}">
   <meta name="apple-mobile-web-app-title" content="{{view.title}}">
   <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png">
@@ -75,16 +75,16 @@
   <link rel="icon" type="image/png" sizes="192x192" href="./images/favicons/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="mask-icon" href="./images/favicons/safari-pinned-tab.svg" color="#455a64">
-  <meta name="msapplication-TileColor" content="#455a64">
+  <link rel="mask-icon" href="./images/favicons/safari-pinned-tab.svg" color="{{view.toolbarBgColor}}">
+  <meta name="msapplication-TileColor" content="{{view.toolbarBgColor}}">
   <meta name="msapplication-TileImage" content="./images/favicons/mstile-144x144.png">
-  <meta name="theme-color" content="#455a64">
+  <meta name="theme-color" content="{{view.toolbarBgColor}}">
 
   <meta name="og:type" property="og:type" content="website" />
   <meta name="og:title" property="og:title" content="{{view.title}}" />
   <meta name="og:description" property="og:description" content="{{view.description}}" />
   <meta name="og:url" property="og:url" content="{{canonicalViewUrl(view)}}" />
-  <meta name="og:site_name" property="og:site_name" content="AMR Workshops" />
+  <meta name="og:site_name" property="og:site_name" content="{{view.title}}" />
   <meta name="og:determiner" property="og:determiner" content="the" />
   <meta name="og:locale" property="og:locale" content="en_US" />
   <meta name="og:image" property="og:image" content="./images/og-image.png" />
@@ -92,7 +92,7 @@
   <meta name="og:image:type" property="og:image:type" content="image/png" />
   <meta name="og:image:width" property="og:image:width" content="1200" />
   <meta name="og:image:height" property="og:image:height" content="1200" />
-  <meta name="og:image:alt" property="og:image:alt" content="AMR Workshops" />
+  <meta name="og:image:alt" property="og:image:alt" content="{{view.title}}" />
 
   <meta name="twitter:card" property="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" property="twitter:title" content="{{view.title}}" />
@@ -111,7 +111,7 @@
         </a>
         <div style='float: right; margin-left: 46%; margin-top: 12px;'>
     {% endraw %}
-          <a target="_blank" href="{{canonicalViewUrl(view)}}">{{canonicalViewUrl(view)}}</a>
+          <a target="_blank" href="{{view.headerUrl}}">{{view.headerUrl}}</a>
     {% raw %}
         </div>
       </div>
@@ -122,15 +122,13 @@
     <header id="banner" {% if view.id != 'default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]"{%- endif %}>
       <div class="site-width">
         {% if view.id == 'default' %}
-        <h2 class="banner-title">AMR Workshop Hub</h2>
+        <h2 class="banner-title">{{view.banner_title}}</h2>
         <div class="banner-description"
              data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
-            AMR workshops are guided tutorial and hands-on practicals
-            we teach within AMR project.  Each workshop takes you step by step through
-            building, and making various applications we teach on our courses.  
-            <br><br/> Follow us on our adventures <br/>
-            <a target="_blank" href="https://github.com/ucl-casa-ce">AMR GitHub</a> | <a target="_blank" href="https://twitter.com/hashtag/ce_lab">Twitter</a> 
+            {{view.site_description}}
+            {% if view.github_url -%}<a target="_blank" href="{{view.github_url}}">GitHub</a> {%- endif %}
+            {% if view.twitter_url -%} | <a target="_blank" href="{{view.twitterURL}}">Twitter</a> {%- endif %}
           </p>
         {%- else -%}
           <div class="banner-description">
@@ -247,8 +245,8 @@
   </paper-header-panel>
 
   <!-- build:js /scripts/main.js -->
-  <script src="bower_components/url-search-params-polyfill/build/url-search-params.js"></script>
-  <script src="scripts/app.js"></script>
+  <script src="./bower_components/url-search-params-polyfill/build/url-search-params.js"></script>
+  <script src="./scripts/app.js"></script>
   <!-- endbuild-->
 </body>
 </html>
