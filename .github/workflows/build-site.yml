@@ -43,9 +43,20 @@ jobs:
       uses: tj-actions/changed-files@v40
       with:
         # Avoid using single or double quotes for multiline patterns
-	files: |
+      files: |
           **.md
-	  
+
+    - id: fetch-latest-release
+      uses: thebritican/fetch-latest-release@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+	repo_path: googlecodelabs/tools
+      
+    - name: Build Site
+      run: | 
+        mv claat-linux-amd64 ./claat
+	chmod +x ./claat
+ 
     - name: Build Changed Claat Workshops
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
       run: |
@@ -62,7 +73,7 @@ jobs:
       uses: jeertmans/filesfinder@latest
       id: ff # Any id, to be used later to reference to files output
       with:
-      args: "--dir ${{ github.workspace }}/codelabs *.md"
+        args: "--dir ${{ github.workspace }}/codelabs *.md"
       
     - name: Build all CLAAT files
       run: |
@@ -84,6 +95,6 @@ jobs:
         publish_branch: gh-pages
         exclude_assets: '.github,.gitignore'
 
-    # - name: List files in the repository
-    #   run: |
-    #     ls ${{ github.workspace }}/dist
+    - name: List files in the repository
+      run: |
+        ls ${{ github.workspace }}/dist
