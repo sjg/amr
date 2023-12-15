@@ -2,7 +2,7 @@
   "title": "Custom Category",
   "description": "This is a custom category for pathway collection.",
   "logoUrl": "/category/cat-logo.png",
-  "tags": ["category", "cat", "insert-tag-here"],
+  "tags": ["category", "cat"],
   "exclude": [
     ".*-about$",
     "^lang-.*"
