@@ -41,7 +41,7 @@ jobs:
      
     - name: Build Site
       run: | 
-        npm install -g node-gyp@latest
+        # npm install -g node-gyp@latest
         npm i
         gulp dist --codelabs-dir=./codelabs
 
