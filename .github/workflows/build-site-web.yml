@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-push-image:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
@@ -34,10 +34,10 @@ jobs:
       with:
         node-version: 18
 
-    - name: Setup Node and Python
+    - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: '2.7.18' 
+        python-version: '3.12.1' 
      
     - name: Build Site
       run: | 
