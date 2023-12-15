@@ -39,24 +39,24 @@ jobs:
         python-version: '3.12.1' 
 
     - name: Get all changed markdown files
-        id: changed-markdown-files
-        uses: tj-actions/changed-files@v40
-        with:
-          # Avoid using single or double quotes for multiline patterns
-          files: |
-             **.md
-
+      id: changed-markdown-files
+      uses: tj-actions/changed-files@v40
+      with:
+        # Avoid using single or double quotes for multiline patterns
+	files: |
+          **.md
+	  
     - name: Build Changed Claat Workshops
-        if: steps.changed-markdown-files.outputs.any_changed == 'true'
-        run: |
-          mkdir ${{ github.workspace }}/codelabs
-          for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
-            if [ $file != "README.md" ]
-	          then
-              echo "Building: $file"
-              # claat export --prefix "https://workshops.cetools.org/elements" -o ${{ github.workspace }}/codelabs $file
-            fi
-          done
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        mkdir ${{ github.workspace }}/codelabs
+        for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+          if [ $file != "README.md" ]
+	  then
+            echo "Building: $file"
+            # claat export --prefix "https://workshops.cetools.org/elements" -o ${{ github.workspace }}/codelabs $file
+          fi
+        done
 
     - name: Find files matching "*.md"
       uses: jeertmans/filesfinder@latest
