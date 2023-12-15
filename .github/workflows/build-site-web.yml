@@ -28,7 +28,11 @@ jobs:
         repository: sjg/amr
         ref: main
         path: codelab-src
-
+  
+    - name: List files in the repository
+      run: |
+        ls ${{ github.workspace }}
+    
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
