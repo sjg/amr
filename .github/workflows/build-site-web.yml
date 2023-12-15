@@ -45,6 +45,13 @@ jobs:
         mkdir ${{ github.workspace }}/codelabs
         gulp dist --codelabs-dir=./codelabs
 
-    - name: List files in the repository
-      run: |
-        ls ${{ github.workspace }}/dist
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        publish_branch: master
+        
+    # - name: List files in the repository
+    #   run: |
+    #     ls ${{ github.workspace }}/dist
