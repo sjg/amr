@@ -18,8 +18,6 @@ jobs:
 
     - name: Checkout Website App
       uses: actions/checkout@v4
-      with:
-        ref: website-source
 
     - name: Checkout Workshop Files
       uses: actions/checkout@v4
