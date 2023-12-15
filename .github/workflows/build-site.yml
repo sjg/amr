@@ -51,7 +51,7 @@ jobs:
       
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}/dist
+          ls ${{ github.workspace }}
       
       - name: Build Site
         run: |
@@ -70,6 +70,8 @@ jobs:
               # claat export --prefix "https://workshops.cetools.org/elements" -o ${{ github.workspace }}/codelabs $file
             fi
           done
+
+          ls -lha ${{ github.workspace }}/codelabs
       
       # - name: Find files matching "*.md"
       #   uses: jeertmans/filesfinder@v0.4.6
@@ -99,4 +101,4 @@ jobs:
       
       - name: List files in the repository
         run: |
-          ls -lha ${{ github.workspace }}
+          ls -lha ${{ github.workspace }}/dist
