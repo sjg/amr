@@ -106,9 +106,11 @@
     {% raw %}
     <div id="mainToolbar" class="paper-header">
       <div class="site-width layout horizontal">
-        <a href="/">
-          <img src="./images/logo.png" class="logo-devs" alt="Codelabs Logo">
+    {% endraw %}
+        <a href="{{baseUrl}}//">
+          <img src="{{view.logoUrl}}" class="logo-devs" alt="Codelabs Logo">
         </a>
+    {% raw %}
         <div style='float: right; margin-left: 46%; margin-top: 12px;'>
     {% endraw %}
           <a target="_blank" href="{{view.headerUrl}}">{{view.headerUrl}}</a>
