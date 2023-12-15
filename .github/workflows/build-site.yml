@@ -68,7 +68,7 @@ jobs:
           done
       
       - name: Find files matching "*.md"
-        uses: jeertmans/filesfinder@latest
+        uses: jeertmans/filesfinder@1.0.0
         id: ff
         with:
           args: --dir ${{ github.workspace }}/codelabs *.md
