@@ -18,6 +18,9 @@ jobs:
 
     - name: Checkout Website App
       uses: actions/checkout@v4
+      with:
+        repository: sjg/amr
+        ref: web-source
 
     - name: Checkout Workshop Files
       uses: actions/checkout@v4
