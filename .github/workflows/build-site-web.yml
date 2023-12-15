@@ -44,7 +44,7 @@ jobs:
       run: | 
         npm i
         mkdir ${{ github.workspace }}/codelabs
-        gulp dist --codelabs-dir=./codelabs
+        gulp dist --codelabs-dir=./codelabs --baseUrl="https://sjg.github.io/amr" --GA_UA="UA-999999999-9"
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
