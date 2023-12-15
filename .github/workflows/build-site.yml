@@ -99,4 +99,4 @@ jobs:
       
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}/dist
+          ls -lha ${{ github.workspace }}
