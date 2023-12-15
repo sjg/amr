@@ -1,25 +1,25 @@
-name: Build Claat Website and push to GitHub Pages
+name: Build Claat Workshops and push to GitHub Pages
 
 on:
   push:
-    branches: [ "web-source" ]
+    branches: [ "main" ]
   #pull_request:
-    #branches: [ "main" ]
-
+    #branches: [ "main" ]     
+    
 jobs:
   build-and-push-image:
-
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
+      pages: write
 
     steps:
-
     - name: Checkout Website App
       uses: actions/checkout@v4
       with:
-        ref: website-source
+        repository: sjg/amr
+        ref: web-source
 
     - name: Checkout Workshop Files
       uses: actions/checkout@v4
@@ -27,18 +27,63 @@ jobs:
         repository: sjg/amr
         ref: main
         path: codelab-src
-
+    
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
-        node-version: 18
-     
+        node-version: 10.15
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12.1' 
+
+    - name: Get all changed markdown files
+        id: changed-markdown-files
+        uses: tj-actions/changed-files@v40
+        with:
+          # Avoid using single or double quotes for multiline patterns
+          files: |
+             **.md
+
+    - name: Build Changed Claat Workshops
+        if: steps.changed-markdown-files.outputs.any_changed == 'true'
+        run: |
+          mkdir ${{ github.workspace }}/codelabs
+          for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+            if [ $file != "README.md" ]
+	          then
+              echo "Building: $file"
+              # claat export --prefix "https://workshops.cetools.org/elements" -o ${{ github.workspace }}/codelabs $file
+            fi
+          done
+
+    - name: Find files matching "*.md"
+      uses: jeertmans/filesfinder@latest
+      id: ff # Any id, to be used later to reference to files output
+      with:
+      args: "--dir ${{ github.workspace }}/codelabs *.md"
+      
+    - name: Build all CLAAT files
+      run: |
+        echo "${{ steps.ff.outputs.files }}"
+        for file in ${{ steps.ff.outputs.files }}; do
+          echo "Building: $file"
+        done
+        
     - name: Build Site
       run: | 
-        npm ci
-        npm test
-        gulp dist --codelabs-dir=./codelabs
+        npm i
+        gulp dist --codelabs-dir=./codelabs --baseUrl="https://sjg.github.io/amr" --GA_UA="UA-999999999-9"
 
-    - name: List files in the repository
-      run: |
-        ls ${{ github.workspace }}
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        publish_branch: gh-pages
+        exclude_assets: '.github,.gitignore'
+
+    # - name: List files in the repository
+    #   run: |
+    #     ls ${{ github.workspace }}/dist
