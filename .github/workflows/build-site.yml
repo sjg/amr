@@ -38,8 +38,8 @@ jobs:
       - name: Get all changed markdown files
         id: changed-markdown-files
         uses: tj-actions/changed-files@v40
-        with: null
-          files: |
+        with: 
+          files: | 
             **.md
       
       - id: fetch-latest-release
