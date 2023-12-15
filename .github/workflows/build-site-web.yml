@@ -40,10 +40,9 @@ jobs:
      
     - name: Build Site
       run: | 
-        npm ci
-        npm test
+        npm i
         gulp dist --codelabs-dir=./codelabs
 
     - name: List files in the repository
       run: |
-        ls ${{ github.workspace }}
+        ls ${{ github.workspace }}/dist
