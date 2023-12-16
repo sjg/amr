@@ -1,9 +1,9 @@
 {
   "environment": "web",
   "format": "html",
-  "prefix": "https://sjg.github.io/amr/elements",
+  "prefix": "https://sjg.github.io/amr",
   "mainga": "UA-49880327-14",
-  "updated": "2023-12-16T10:25:19Z",
+  "updated": "2023-12-16T13:21:42Z",
   "id": "codelab-4-codelab-markdown",
   "duration": 14,
   "title": "CodeLab to Create a CodeLab",
