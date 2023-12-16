@@ -91,7 +91,7 @@ jobs:
           	fi
           done <  /tmp/mdFiles.dat
           
-          ls -lha ${{ github.workspace §}}/codelabs
+          ls -lha ${{ github.workspace }}/codelabs
       
       - name: Build Site
         run: |
