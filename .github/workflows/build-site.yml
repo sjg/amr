@@ -68,6 +68,8 @@ jobs:
           wget ${{ steps.download-link.outputs.value }}
           mv claat-linux-amd64 ./claat
           chmod +x ./claat
+          ls -lha ${{ github.workspace }}
+
       
       - name: Build Changed Claat Workshops
         if: steps.changed-markdown-files.outputs.any_changed == 'true'
@@ -78,7 +80,7 @@ jobs:
             if [ $file != "README.md" ]
             then
               echo "Building: $file"
-              claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $file
+              #./claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $file
             fi
           done
 
