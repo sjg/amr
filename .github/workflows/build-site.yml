@@ -49,11 +49,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           repo_path: googlecodelabs/tools
       
-      - name: List files in the repository
+      - name: Download 
         run: |
           ls ${{ github.workspace }}
-          echo ${{ steps.fetch-latest-release.outputs.url }}
-          echo ${{ steps.fetch-latest-release.outputs.assets_url }}
           wget -O download.json ${{ steps.fetch-latest-release.outputs.assets_url }}
 
       - name: Extract version from download-link.json
@@ -61,26 +59,22 @@ jobs:
         id: download-link
         with:
           cmd: jq '.[] | select(.name =="claat-linux-amd64") | .browser_download_url' download.json -r 
-      
-      - name: Build Site
+
+      - name: Build Changed Claat Workshops
+        if: steps.changed-markdown-files.outputs.any_changed == 'true'
         run: |
-          echo ${{ steps.download-link.outputs.value }}
           wget ${{ steps.download-link.outputs.value }}
           mv claat-linux-amd64 ./claat
           chmod +x ./claat
           ls -lha ${{ github.workspace }}
-
-      
-      - name: Build Changed Claat Workshops
-        if: steps.changed-markdown-files.outputs.any_changed == 'true'
-        run: |
+          
           mkdir ${{ github.workspace }}/codelabs
 
           for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
             if [ $file != "README.md" ]
             then
               echo "Building: $file"
-              #./claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $file
+              ./claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $file
             fi
           done
 
