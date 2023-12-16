@@ -54,6 +54,17 @@ jobs:
           ls ${{ github.workspace }}
           echo ${{ steps.fetch-latest-release.outputs.url }}
           echo ${{ steps.fetch-latest-release.outputs.assets_url }}
+
+      - name: wget
+        uses: wei/wget@v1
+        with:
+          args: -O download-link.json {{steps.fetch-latest-release.outputs.assets_url}}
+
+      - name: Extract version from download-link.json
+        uses: sergeysova/jq-action@v2
+        id: version
+        with:
+          cmd: jq '.[] | select(.name =="claat-linux-amd64") | .browser_download_url' download.json -r 
       
       - name: Build Site
         run: |
