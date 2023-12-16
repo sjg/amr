@@ -87,7 +87,7 @@ jobs:
           	if [ $FILENAME != "README.md" ]
           	then
               echo "Building:- $FILE"
-          		 ./claat export --prefix "https://sjg.github.io/amr" -o ${{ github.workspace }}/codelabs $FILE
+          		 ./claat export --prefix "https://sjg.github.io/amr" -f codelab-template.html -o ${{ github.workspace }}/codelabs $FILE
           	fi
           done <  /tmp/mdFiles.dat
           
@@ -98,7 +98,7 @@ jobs:
           npm i
           gulp dist --codelabs-dir=./codelabs --baseUrl="https://sjg.github.io/amr" --GA_UA="UA-999999999-9"
           
-          # Fix new file structure 
+          # Fix new file structure in the claat tool cli - added claat-public folder 
           mkdir ./dist/claat-public
           cp -R ./dist/elements/codelab-elements/. ./dist/claat-public/.
           cp -R ./dist/elements/. ./dist/claat-public/.
