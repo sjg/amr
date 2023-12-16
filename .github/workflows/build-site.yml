@@ -60,7 +60,7 @@ jobs:
         with:
           cmd: jq '.[] | select(.name =="claat-linux-amd64") | .browser_download_url' download.json -r 
 
-      - name: Build Changed Claat Workshops
+      - name: Build All Claat Workshops
         if: steps.changed-markdown-files.outputs.any_changed == 'true'
         run: |
           wget ${{ steps.download-link.outputs.value }}
@@ -70,28 +70,28 @@ jobs:
           
           mkdir ${{ github.workspace }}/codelabs
 
-          for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
-            if [ $file != "README.md" ]
-            then
-              echo "Building: $file"
-              ./claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $file
-            fi
-          done
+          # Build Changed Codelabs
+          # for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+          #   if [ $file != "README.md" ]
+          #   then
+          #     echo "Building: $file"
+          #     ./claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $file
+          #   fi
+          # done
 
-          ls -lha ${{ github.workspace }}/codelabs
-      
-      # - name: Find files matching "*.md"
-      #   uses: jeertmans/filesfinder@v0.4.6
-      #   id: ff
-      #   with:
-      #     args: --dir ${{ github.workspace }}/codelabs *.md
-      
-      # - name: Build all CLAAT files
-      #   run: |
-      #     echo "${{ steps.ff.outputs.files }}"
-      #     for file in ${{ steps.ff.outputs.files }}; do
-      #       echo "Building: $file"
-      #     done
+          find ./codelab-src -name '*.md' > /tmp/mdFiles.dat
+
+          while read FILE
+          do
+          	FILENAME=$(basename $FILE)
+          	if [ $FILENAME != "README.md" ]
+          	then
+              echo "Building:- $FILE"
+          		 ./claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $file
+          	fi
+          done <  /tmp/mdFiles.dat
+          
+          ls -lha ${{ github.workspace §}}/codelabs
       
       - name: Build Site
         run: |
