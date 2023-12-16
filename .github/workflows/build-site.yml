@@ -87,7 +87,7 @@ jobs:
           	if [ $FILENAME != "README.md" ]
           	then
               echo "Building:- $FILE"
-          		 ./claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $file
+          		 ./claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $FILE
           	fi
           done <  /tmp/mdFiles.dat
           
