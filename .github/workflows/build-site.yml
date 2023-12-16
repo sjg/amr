@@ -54,7 +54,7 @@ jobs:
           ls ${{ github.workspace }}
           echo ${{ steps.fetch-latest-release.outputs.url }}
           echo ${{ steps.fetch-latest-release.outputs.assets_url }}
-          wget -O download.json {{ steps.fetch-latest-release.outputs.assets_url }}
+          wget -O download.json ${{ steps.fetch-latest-release.outputs.assets_url }}
 
       - name: Extract version from download-link.json
         uses: sergeysova/jq-action@v2
@@ -64,8 +64,8 @@ jobs:
       
       - name: Build Site
         run: |
-          echo {{ steps.download-link.outputs.value }}
-          wget {{ steps.download-link.outputs.value }}
+          echo ${{ steps.download-link.outputs.value }}
+          wget ${{ steps.download-link.outputs.value }}
           mv claat-linux-amd64 ./claat
           chmod +x ./claat
       
