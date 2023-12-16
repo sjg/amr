@@ -78,7 +78,7 @@ jobs:
             if [ $file != "README.md" ]
             then
               echo "Building: $file"
-              # claat export --prefix "https://workshops.cetools.org/elements" -o ${{ github.workspace }}/codelabs $file
+              claat export --prefix "https://sjg.github.io/amr/elements" -o ${{ github.workspace }}/codelabs $file
             fi
           done
 
@@ -113,3 +113,5 @@ jobs:
       - name: List files in the repository
         run: |
           ls -lha ${{ github.workspace }}/dist
+          ls -lha ${{ github.workspace }}/codelabs
+          ls -lha ${{ github.workspace }}/
