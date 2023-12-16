@@ -58,7 +58,7 @@ jobs:
       - name: wget
         uses: wei/wget@v1
         with:
-          args: -O download-link.json {{steps.fetch-latest-release.outputs.assets_url}}
+          args: -O download-link.json {{ steps.fetch-latest-release.outputs.assets_url }}
 
       - name: Extract version from download-link.json
         uses: sergeysova/jq-action@v2
