@@ -16,7 +16,7 @@ Duration: 00:05:00
 Add the markdown for the step here
 
 <!-- ------------------------ -->
-## Step 2 -  
+## Step 2  
 Duration: 00:05:00
 
 ### List of Learnings 
@@ -39,7 +39,6 @@ Duration: 00:05:00
 [Youtube - Music Playlist](https://www.youtube.com/watch?v=VNMms_zGbnI)
 
 ### Images
-![Remote Image](https://picsum.photos/300/200)
 ![Local Image](./assets/test-image.jpg)
 
 <!-- ------------------------ -->
