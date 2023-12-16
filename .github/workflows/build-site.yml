@@ -49,11 +49,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           repo_path: googlecodelabs/tools
       
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-          echo ${{ steps.fetch-latest-release.outputs.url }}
-          echo ${{ steps.fetch-latest-release.outputs.assets_url }}
+      # - name: List files in the repository
+      #   run: |
+      #     ls ${{ github.workspace }}
+      #     echo ${{ steps.fetch-latest-release.outputs.url }}
+      #     echo ${{ steps.fetch-latest-release.outputs.assets_url }}
 
       - name: wget
         uses: wei/wget@v1
