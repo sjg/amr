@@ -674,7 +674,7 @@ const viewFuncs = {
   // parameters if given.
   codelabUrl: (params) => {
     return (view, codelab) => {
-      let url = codelab.url;
+      let url = BASE_URL + codelab.url;
       if (params !== undefined) {
         url = `${url}?${params}`;
       }
