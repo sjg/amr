@@ -3,11 +3,11 @@
   "format": "html",
   "prefix": "https://sjg.github.io/amr",
   "mainga": "UA-49880327-14",
-  "updated": "2023-12-18T22:58:45Z",
+  "updated": "2023-12-18T22:59:11Z",
   "id": "codelab-4-codelab-markdown",
   "duration": 14,
   "title": "CodeLab to Create a CodeLab",
-  "summary": "Create a CodeLab Using Markdown",
+  "summary": "Create a CodeLab Using Markdown.  This codelab comes directly from the main source website.",
   "source": "./codelab-src/sample/sample.md",
   "theme": "",
   "status": [
