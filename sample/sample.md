@@ -1,5 +1,5 @@
 author: Marc DiPasquale
-summary: Create a CodeLab Using Markdown
+summary: Create a CodeLab Using Markdown.  This codelab comes directly from the main source website.
 id: codelab-4-codelab-markdown
 categories: codelab,markdown
 environments: Web
