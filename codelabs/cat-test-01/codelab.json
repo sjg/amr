@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://sjg.github.io/amr",
+  "mainga": "UA-49880327-14",
+  "updated": "2023-12-18T22:18:56Z",
+  "id": "cat-test-01",
+  "duration": 20,
+  "title": "Default CodeLab Title",
+  "authors": "sjg",
+  "summary": "A sample summary",
+  "source": "./codelab-src/cat-test-workshop/cat-test-workshop.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "cat"
+  ],
+  "tags": [
+    "tag1",
+    "tag2"
+  ],
+  "url": "cat-test-01"
+}
