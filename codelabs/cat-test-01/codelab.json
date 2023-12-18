@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://sjg.github.io/amr",
   "mainga": "UA-49880327-14",
-  "updated": "2023-12-18T22:38:21Z",
+  "updated": "2023-12-18T22:44:27Z",
   "id": "cat-test-01",
   "duration": 20,
   "title": "Default CodeLab Title",
@@ -15,11 +15,10 @@
     "published"
   ],
   "category": [
-    "cat"
+    "category"
   ],
   "tags": [
-    "tag1",
-    "tag2"
+    "cat"
   ],
   "url": "cat-test-01"
 }
