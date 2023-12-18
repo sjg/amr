@@ -67,9 +67,7 @@ jobs:
           mv claat-linux-amd64 ./claat
           chmod +x ./claat
           ls -lha ${{ github.workspace }}
-          
-          ls -lha ${{ github.workspace }}/claat-templates
-          
+                
           mkdir ${{ github.workspace }}/codelabs
 
           # Build Changed Codelabs
@@ -89,7 +87,7 @@ jobs:
           	if [ $FILENAME != "README.md" ]
           	then
               echo "Building:- $FILE"
-          		 ./claat export --prefix "https://sjg.github.io/amr" -f ${{ github.workspace }}/claat-templates/codelab-template.html -o ${{ github.workspace }}/codelabs $FILE
+          		 ./claat export --prefix "https://sjg.github.io/amr" -f ${{ github.workspace }}/claat-templates/claat-template.html -o ${{ github.workspace }}/codelabs $FILE
           	fi
           done <  /tmp/mdFiles.dat
           
