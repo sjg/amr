@@ -1,4 +1,4 @@
-summary: A sample summary
+summary: This workshop is the Codelab Test Sample which shows all the features you can use within codelabs.
 id: cat-test-01
 categories: category
 tags: cat
