@@ -1,7 +1,7 @@
 summary: A sample summary
 id: cat-test-01
-categories: cat
-tags: Tag 1,Tag 2
+categories: category
+tags: cat
 status: Published
 authors: sjg    
 Feedback Link: https://github.com/sjg/amr/tree/main
