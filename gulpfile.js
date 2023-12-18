@@ -679,7 +679,7 @@ const viewFuncs = {
         url = `${url}?${params}`;
       }
       if (url.length > 0 && url[0] !== '/') {
-        url = `${url}`;
+        url = `./${url}`;
       }
       return url;
     }
