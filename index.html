@@ -91,37 +91,8 @@ The AMR workshops are guided tutorial and hands-on practicals we teach within AM
 </a>
 </paper-listbox>
 </paper-dropdown-menu>
-<paper-dropdown-menu label="Filter by category" class="dropdown-filter" no-label-float noink no-animations>
-<paper-listbox id="categorylist" slot="dropdown-content" class="dropdown-content" on-iron-activate="onCategoryActivate" attr-for-selected="filter">
-<paper-item filter="cat">cat</paper-item>
-<paper-item filter="codelab">codelab</paper-item>
-</paper-listbox>
-</paper-dropdown-menu></div>
+</div>
 <card-sorter id="cards" class="site-width">
-<a href="codelabs/cat-test-01/index.html?index=..%2F..index" on-tap="navigate" class="codelab-card category-cat" data-category="cat" data-title="Default CodeLab Title" data-duration="20" data-summary="A sample summary" data-updated="2023-12-18T22:30:20Z" data-tags="tag1,tag2" data-pin="">
-<div class="description">Default CodeLab Title</div>
-<div class="card-duration">
-<span>20 min </span>
-<span>Updated Dec 18, 2023</span>
-</div>
-<div class="card-summary">A sample summary </div>
-<div class="card-footer">
-<div class="category-icon cat-icon"></div>
-<paper-button class="cat-bg">Start</paper-button>
-</div>
-</a>
-<a href="codelabs/codelab-4-codelab-markdown/index.html?index=..%2F..index" on-tap="navigate" class="codelab-card category-codelab" data-category="codelab,markdown" data-title="CodeLab to Create a CodeLab" data-duration="14" data-summary="Create a CodeLab Using Markdown" data-updated="2023-12-18T22:30:20Z" data-tags="web" data-pin="">
-<div class="description">CodeLab to Create a CodeLab</div>
-<div class="card-duration">
-<span>14 min </span>
-<span>Updated Dec 18, 2023</span>
-</div>
-<div class="card-summary">Create a CodeLab Using Markdown </div>
-<div class="card-footer">
-<div class="category-icon codelab-icon"></div>
-<paper-button class="codelab-bg">Start</paper-button>
-</div>
-</a>
 </card-sorter>
 <div id="loading-placeholder" class="site-width">
 Loading Workshops, please wait...
