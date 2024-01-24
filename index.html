@@ -91,8 +91,37 @@ The AMR workshops are guided tutorial and hands-on practicals we teach within AM
 </a>
 </paper-listbox>
 </paper-dropdown-menu>
-</div>
+<paper-dropdown-menu label="Filter by category" class="dropdown-filter" no-label-float noink no-animations>
+<paper-listbox id="categorylist" slot="dropdown-content" class="dropdown-content" on-iron-activate="onCategoryActivate" attr-for-selected="filter">
+<paper-item filter="category">category</paper-item>
+<paper-item filter="codelab">codelab</paper-item>
+</paper-listbox>
+</paper-dropdown-menu></div>
 <card-sorter id="cards" class="site-width">
+<a href="./codelabs/cat-test-01/index.html?index=..%2F..index" on-tap="navigate" class="codelab-card category-category" data-category="category" data-title="Default CodeLab Title" data-duration="20" data-summary="This workshop is the Codelab Test Sample which shows all the features you can use within codelabs." data-updated="2024-01-24T18:31:23Z" data-tags="cat" data-pin="">
+<div class="description">Default CodeLab Title</div>
+<div class="card-duration">
+<span>20 min </span>
+<span>Updated Jan 24, 2024</span>
+</div>
+<div class="card-summary">This workshop is the Codelab Test Sample which shows all the features you can use within codelabs. </div>
+<div class="card-footer">
+<div class="category-icon category-icon"></div>
+<paper-button class="category-bg">Start</paper-button>
+</div>
+</a>
+<a href="./codelabs/codelab-4-codelab-markdown/index.html?index=..%2F..index" on-tap="navigate" class="codelab-card category-codelab" data-category="codelab,markdown" data-title="CodeLab to Create a CodeLab" data-duration="14" data-summary="Create a CodeLab Using Markdown.  This codelab comes directly from the main source website." data-updated="2024-01-24T18:31:23Z" data-tags="web" data-pin="">
+<div class="description">CodeLab to Create a CodeLab</div>
+<div class="card-duration">
+<span>14 min </span>
+<span>Updated Jan 24, 2024</span>
+</div>
+<div class="card-summary">Create a CodeLab Using Markdown. This codelab comes directly from the main source website. </div>
+<div class="card-footer">
+<div class="category-icon codelab-icon"></div>
+<paper-button class="codelab-bg">Start</paper-button>
+</div>
+</a>
 </card-sorter>
 <div id="loading-placeholder" class="site-width">
 Loading Workshops, please wait...
