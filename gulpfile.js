@@ -255,7 +255,7 @@ gulp.task('build', gulp.series(
   'build:scss',
   'build:html',
   'build:images',
-  'build:claat_public'
+  'build:claat_public',
   'build:js',
   'build:elements_js',
   'build:vulcanize',
