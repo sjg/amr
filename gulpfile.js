@@ -184,6 +184,16 @@ gulp.task('build:images', () => {
     .pipe(gulp.dest('build'));
 });
 
+// build:images builds all the custom codelab-elements resources.
+gulp.task('build:claat_public', () => {
+  const srcs = [
+    'app/claat-public/**/*',
+  ];
+
+  return gulp.src(srcs, { base: 'app/' })
+    .pipe(gulp.dest('build'));
+});
+
 // build:js builds all the javascript into the dest dir
 gulp.task('build:js', (callback) => {
   let streams = [];
@@ -245,6 +255,7 @@ gulp.task('build', gulp.series(
   'build:scss',
   'build:html',
   'build:images',
+  'build:claat_public'
   'build:js',
   'build:elements_js',
   'build:vulcanize',
